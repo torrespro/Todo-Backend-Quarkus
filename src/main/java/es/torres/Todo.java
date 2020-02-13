@@ -19,7 +19,7 @@ public class Todo extends PanacheEntity {
 
     public URL getUrl() throws URISyntaxException, MalformedURLException {
         if (this.id != null) {
-            return UriBuilder.fromUri(url.toURI()).scheme("https").path(this.id.toString()).build().toURL();
+            return UriBuilder.fromUri(url.toURI()).scheme(url.getProtocol()).path(this.id.toString()).build().toURL();
         }
         return this.url;
     }

@@ -17,9 +17,13 @@ import javax.ws.rs.core.Context;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import javax.ws.rs.core.UriInfo;
+import org.eclipse.microprofile.config.inject.ConfigProperty;
 
 @Path("/todos")
 public class TodoResource {
+
+    @ConfigProperty(name = "scheme")
+    String scheme;
 
     @Context
     UriInfo uriInfo;
@@ -35,7 +39,7 @@ public class TodoResource {
     @Produces(MediaType.APPLICATION_JSON)
     @Transactional
     public Todo create(Todo newTodo) throws MalformedURLException {
-        newTodo.url = uriInfo.getAbsolutePathBuilder().scheme("https").build().toURL();
+        newTodo.url = uriInfo.getAbsolutePathBuilder().scheme(scheme).build().toURL();
         newTodo.persist();
         return newTodo;
     }
