@@ -38,13 +38,19 @@ the checked out sources of this demo:
 
 ## Running the demo
 
+### Using DevServices
+
+If you want to use DevServices then all you need to do is include the relevant extension for the type of database you want (either reactive or JDBC, or both), and don’t configure a database URL, username and password, Quarkus will provide the database and you can just start coding without worrying about config.
+
+https://quarkus.io/guides/datasource#dev-services
+
 ### Prepare a PostgreSQL instance
 
 First we will need a PostgreSQL database; you can launch one easily if you have Docker installed:
 
 > docker run --ulimit memlock=-1:-1 -it --rm=true --memory-swappiness=0 --name quarkus_test -e POSTGRES_USER=quarkus_test -e POSTGRES_PASSWORD=quarkus_test -e POSTGRES_DB=quarkus_test -p 5432:5432 postgres:11.5
 
-Alternatively you can setup a PostgreSQL instance in any another way.
+Alternatively you can set up a PostgreSQL instance in any another way.
 
 The connection properties of the Agroal datasource are configured in the standard Quarkus configuration file, which you will find in
 `src/main/resources/application.properties`.
@@ -53,7 +59,7 @@ The connection properties of the Agroal datasource are configured in the standar
 ## Running the application in dev mode
 
 You can run your application in dev mode that enables live coding using:
-```
+```shell script
 ./mvnw quarkus:dev
 ```
 
@@ -71,12 +77,16 @@ Be aware that it’s not an _über-jar_ as the dependencies are copied into the 
 
 The application is now runnable using `java -jar target/todo-with-quarkus-1.0.0-SNAPSHOT-runner.jar`.
 
-## Creating a native executable
+You can create a native executable using: 
+```shell script
+./mvnw package -Pnative
+```
 
-You can create a native executable using: `./mvnw package -Pnative`.
+Or, if you don't have GraalVM installed, you can run the native executable build in a container using: 
+```shell script
+./mvnw package -Pnative -Dquarkus.native.container-build=true
+```
 
-Or you can use Docker to build the native executable using: `./mvnw package -Pnative -Dquarkus.native.container-build=true`.
+You can then execute your native executable with: `./target/code-with-quarkus-1.0.0-SNAPSHOT-runner`
 
-You can then execute your binary: `./target/todo-with-quarkus-1.0.0-SNAPSHOT-runner`
-
-If you want to learn more about building native executables, please consult https://quarkus.io/guides/building-native-image-guide .
+If you want to learn more about building native executables, please consult https://quarkus.io/guides/maven-tooling.html.
