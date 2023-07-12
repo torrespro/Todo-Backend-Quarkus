@@ -2,11 +2,11 @@
 
 This project uses Quarkus, the Supersonic Subatomic Java Framework to build an API for a ToDo application adhering to the
 spec described at [https://www.todobackend.com/](https://www.todobackend.com/).
-The project is deployed on [Heroku](https://todo-quarkus.herokuapp.com/todos)
+The project is deployed on [Render](https://todo-quarkus-ep2a.onrender.com/todos)
 
 
-You can see it working with the provided UI [Here](https://www.todobackend.com/client/index.html?https://todo-quarkus.herokuapp.com/todos) 
-You can verify the test are passing here [API tests](https://www.todobackend.com/specs/index.html?https://todo-quarkus.herokuapp.com/todos)
+You can see it working with the provided UI [Here](https://www.todobackend.com/client/index.html?https://todo-quarkus-ep2a.onrender.com/todos) 
+You can verify the test are passing here [API tests](https://www.todobackend.com/specs/index.html?https://todo-quarkus-ep2a.onrender.com/todos)
 
 If you want to learn more about Quarkus, please visit its website: https://quarkus.io/ .
 
