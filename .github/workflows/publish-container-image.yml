@@ -15,7 +15,7 @@ jobs:
       - uses: graalvm/setup-graalvm@v1
         with:
           java-version: '17'
-          components: 'graalvm'
+          distribution: 'graalvm'
           github-token: ${{ secrets.GITHUB_TOKEN }}
       - name: 'Cache Maven packages'
         uses: actions/cache@v3.0.11
