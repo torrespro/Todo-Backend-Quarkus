@@ -4,9 +4,9 @@ import io.quarkus.hibernate.orm.panache.PanacheEntity;
 import java.net.MalformedURLException;
 import java.net.URISyntaxException;
 import java.net.URL;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.ws.rs.core.UriBuilder;
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.ws.rs.core.UriBuilder;
 
 @Entity
 public class Todo extends PanacheEntity {
